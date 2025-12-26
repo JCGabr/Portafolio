@@ -8,31 +8,34 @@
     padding: 20px;
 }
 
-.navbar > a {
+.navbar > div {
     display: block;
     padding: 4px 12px;
     border-radius: 10px;
-    color: whitesmoke;
     text-align: left;
     position: relative;
     overflow: hidden;
 }
 
-.navbar > a::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(100, 1, 113);
-    border-radius: 10px;
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.4s ease;
-    z-index: -1;
+.navbar > div > a {
+    color: whitesmoke;
 }
 
-.navbar > a.active::before {
-    clip-path: inset(0 75% 0 0);
-    transition: clip-path 0.3s ease;
+.underline-top,
+.underline-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgb(167, 24, 24);
+}
+
+.underline-top {
+  top: 0;
+  transform-origin: left;
+}
+
+.underline-bottom {
+  bottom: 0;
+  transform-origin: right;
 }
