@@ -1,6 +1,11 @@
+import { motion } from "motion/react";
 
 function Personal(){
-    return <h1>Personal</h1>
+    return (
+        <motion.div>
+            <h1>Personal</h1>
+        </motion.div>
+    )
 }
 
 export default Personal;

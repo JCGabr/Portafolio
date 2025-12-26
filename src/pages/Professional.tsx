@@ -1,6 +1,11 @@
+import { motion } from "motion/react";
 
 function Profesional(){
-    return <h1>Professional</h1>
+    return (
+        <motion.div>
+            <h1>Professional</h1>
+        </motion.div>
+    )
 }
 
 export default Profesional;
