@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
+import MotionBox from '../components/MotionBox.tsx'
 
 function Personal(){
     return (
-        <motion.div>
+        <MotionBox>
             <h1>Personal</h1>
-        </motion.div>
+        </MotionBox>
     )
 }
 

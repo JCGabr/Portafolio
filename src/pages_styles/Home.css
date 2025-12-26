@@ -5,14 +5,7 @@
   text-align: center;
 }
 
-.homeContainer{
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin:auto;
-}
-
 .content{
   align-self: center;
-  width: 70%;
+  width: 60%;
 }

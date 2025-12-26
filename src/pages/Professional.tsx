@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
+import MotionBox from '../components/MotionBox.tsx'
 
 function Profesional(){
     return (
-        <motion.div>
+        <MotionBox>
             <h1>Professional</h1>
-        </motion.div>
+        </MotionBox>
     )
 }
 
