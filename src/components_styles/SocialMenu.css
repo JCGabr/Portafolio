@@ -1,0 +1,53 @@
+.social-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  height: 160px;
+  width: 50px;
+  pointer-events: auto;
+}
+
+.social-menu {
+  height: 160px;
+  width: 50px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  cursor: pointer;
+
+  background: #111;
+  border-radius: 30px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.15);
+}
+
+.arrow {
+  height: 40px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #222;
+  color: white;
+}

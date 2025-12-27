@@ -39,7 +39,7 @@ function NavBar() {
             {...animationEnd}
           />
           
-          <NavLink to={item.path} className={({ isActive }) => isActive ? 'active' : ''}>{item.label}</NavLink>
+          <NavLink to={item.path} className={({ isActive }) => isActive ? 'navlink active' : 'navlink'}>{item.label}</NavLink>
           
           <motion.div
             className="underline-bottom"

@@ -8,6 +8,7 @@
   flex-direction: column;
   gap: 12px;
   padding: 20px;
+  z-index: 100;
 }
 
 .navbar > div {
@@ -19,8 +20,12 @@
   overflow: hidden;
 }
 
-.navbar > div > a {
+.navbar > div > a ,
+.navbar > div > .navlink{
   color: whitesmoke;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 /* Animations */

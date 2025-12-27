@@ -4,6 +4,7 @@ import Home from './pages/Home.tsx';
 import Personal from './pages/Personal.tsx';
 import Profesional from './pages/Professional.tsx';
 import { AnimatePresence } from 'motion/react';
+import SocialMenu from './components/SocialMenu.tsx';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/personal' element={<Personal />}/>
         </Routes>
       </AnimatePresence>
+      <SocialMenu/>
     </>
   )
 }
