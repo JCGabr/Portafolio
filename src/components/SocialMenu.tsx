@@ -6,9 +6,6 @@
   import type { SocialMenuProps, SocialLink } from './SocialMenu/types';
   import '../components_styles/SocialMenu.css';
 
-  /**
-   * Componente individual de icono social (Memoizado)
-   */
   const SocialIcon = memo(({ 
     link, 
     index, 
@@ -33,7 +30,6 @@
         aria-label={link.label}
         onClick={onClose}
         className="social-icon-button"
-        // Animaciones de entrada
         initial={{ opacity: 0, y: -20, scale: 0.8 }}
         animate={{ 
           opacity: 1, 
@@ -53,16 +49,7 @@
             duration: ANIMATION_CONFIG.duration.fade,
           }
         }}
-        whileHover={{ 
-          scale: 1.15,
-          backgroundColor: `${link.color}15`,
-          borderColor: link.color,
-          transition: { duration: 0.2 }
-        }}
         whileTap={{ scale: 0.95 }}
-        style={{ 
-          ['--hover-color' as string]: link.color 
-        }}
       >
         <Icon size={iconSize} />
       </motion.a>
@@ -132,7 +119,6 @@
           )}
         </AnimatePresence>
 
-        {/* Main FAB button */}
         <motion.button
           onClick={toggle}
           aria-label={isOpen ? 'Close social menu' : 'Open social menu'}
@@ -143,14 +129,7 @@
             width: mainButtonSize,
             height: mainButtonSize,
           }}
-          // Hover effects
-          whileHover={{ 
-            scale: 1.05,
-            borderColor: '#fff',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          }}
           whileTap={{ scale: 0.95 }}
-          // Focus visible para a11y
           whileFocus={{
             boxShadow: '0 0 0 3px rgba(147, 112, 219, 0.5)',
           }}
