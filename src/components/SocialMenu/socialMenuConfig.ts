@@ -6,14 +6,14 @@ export const DEFAULT_SOCIAL_LINKS: SocialLink[] = [
     id: 'linkedin',
     icon: FaLinkedin,
     label: 'LinkedIn Profile',
-    href: 'https://linkedin.com/in/tu-usuario',
-    color: '#0077B5',
+    href: 'https://www.linkedin.com/in/jose-gabriel-cornejo-castro-38045729b/',
+    color: '#0076b5',
   },
   {
     id: 'github',
     icon: FaGithub,
     label: 'GitHub Profile',
-    href: 'https://github.com/tu-usuario',
+    href: 'https://github.com/JCGabr',
     color: '#333',
   },
 ];

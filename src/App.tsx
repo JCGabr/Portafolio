@@ -1,4 +1,4 @@
-import {Routes, Route, useLocation} from 'react-router-dom';
+import {Routes, Route, useLocation, Navigate} from 'react-router-dom';
 import NavBar from './components/NavBar.tsx';
 import Home from './pages/Home.tsx';
 import About from './pages/About.tsx';
@@ -28,6 +28,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/works' element={<Works />}/>
           <Route path='/about' element={<About />}/>
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>
       <SocialMenu/>
