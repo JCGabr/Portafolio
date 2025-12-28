@@ -1,9 +1,0 @@
-.animated-canvas {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  background: linear-gradient(135deg,#0c0c18 0%,#190d30 50%,#2d174d 100%);
-}

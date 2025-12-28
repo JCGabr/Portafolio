@@ -1,13 +1,10 @@
-import ImageBox from '../components/ImageBox.tsx'
 import MotionBox from '../components/MotionBox.tsx'
 import '../pages_styles/Home.css'
-import backgroundImg from '../assets/IMG_0092.jpg'
 import { Typewriter } from 'react-simple-typewriter'
 
 function Home() {
   return (
     <div className="container-home">
-      <ImageBox image={backgroundImg} styleClass="background" />
 
       <MotionBox variant="breathe">
         <h1>

@@ -1,87 +1,174 @@
-import React, { useState } from 'react';
-import { FaPlus, FaLinkedin, FaGithub} from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
+  import React, { memo } from 'react';
+  import { motion, AnimatePresence } from 'framer-motion';
+  import { FaPlus } from 'react-icons/fa';
+  import { useSocialMenu } from './SocialMenu/useSocialMenu';
+  import { DEFAULT_SOCIAL_LINKS, ANIMATION_CONFIG, BUTTON_SIZES } from './SocialMenu/socialMenuConfig';
+  import type { SocialMenuProps, SocialLink } from './SocialMenu/types';
+  import '../components_styles/SocialMenu.css';
 
-const SocialMenu: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  /**
+   * Componente individual de icono social (Memoizado)
+   */
+  const SocialIcon = memo(({ 
+    link, 
+    index, 
+    totalIcons,
+    size,
+    onClose 
+  }: { 
+    link: SocialLink; 
+    index: number; 
+    totalIcons: number;
+    size: 'small' | 'medium' | 'large';
+    onClose: () => void;
+  }) => {
+    const Icon = link.icon;
+    const iconSize = BUTTON_SIZES[size].iconSize;
 
-  const icons = [
-    <FaLinkedin size={20} />,
-    <FaGithub size={20} />
-  ];
+    return (
+      <motion.a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={link.label}
+        onClick={onClose}
+        className="social-icon-button"
+        // Animaciones de entrada
+        initial={{ opacity: 0, y: -20, scale: 0.8 }}
+        animate={{ 
+          opacity: 1, 
+          y: 0, 
+          scale: 1,
+          transition: { 
+            delay: index * ANIMATION_CONFIG.stagger.enter,
+            ...ANIMATION_CONFIG.spring,
+          }
+        }}
+        exit={{ 
+          opacity: 0, 
+          y: -20, 
+          scale: 0.8,
+          transition: { 
+            delay: (totalIcons - index - 1) * ANIMATION_CONFIG.stagger.exit,
+            duration: ANIMATION_CONFIG.duration.fade,
+          }
+        }}
+        whileHover={{ 
+          scale: 1.15,
+          backgroundColor: `${link.color}15`,
+          borderColor: link.color,
+          transition: { duration: 0.2 }
+        }}
+        whileTap={{ scale: 0.95 }}
+        style={{ 
+          ['--hover-color' as string]: link.color 
+        }}
+      >
+        <Icon size={iconSize} />
+      </motion.a>
+    );
+  });
 
-  return (
-    <>
-      <div className="fab-wrapper">
-        
+  SocialIcon.displayName = 'SocialIcon';
+
+  const SocialMenu: React.FC<SocialMenuProps> = ({
+    links = DEFAULT_SOCIAL_LINKS,
+    position = 'bottom-right',
+    size = 'medium',
+    closeOnClick = true,
+  }) => {
+    const { isOpen, toggle, close, menuRef } = useSocialMenu(true);
+    const mainButtonSize = BUTTON_SIZES[size].main;
+    const mainIconSize = BUTTON_SIZES[size].icon;
+
+    const handleLinkClick = () => {
+      if (closeOnClick) {
+        close();
+      }
+    };
+
+    return (
+      <div 
+        ref={menuRef}
+        className={`social-menu-wrapper social-menu-${position}`}
+        role="navigation"
+        aria-label="Social media links"
+      >
         <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="social-menu-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: ANIMATION_CONFIG.duration.fade }}
+              onClick={close}
+              aria-hidden="true"
+            />
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait">
           {isOpen && (
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="icons-container"
+              transition={{ duration: ANIMATION_CONFIG.duration.fade }}
+              className="social-icons-container"
+              role="menu"
             >
-              {icons.map((icon, i) => (
-                <motion.button
-                  key={i}
-                  initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                    transition: { 
-                      delay: i * 0.06,
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 20
-                    }
-                  }}
-                  exit={{ 
-                    opacity: 0, 
-                    y: 20, 
-                    scale: 0.8,
-                    transition: { 
-                      delay: (icons.length - i) * 0.03
-                    }
-                  }}
-                  whileHover={{ 
-                    scale: 1.15, 
-                    borderColor: '#ffffffaf',
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)'
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="icon-button"
-                >
-                  {icon}
-                </motion.button>
+              {links.map((link, index) => (
+                <SocialIcon
+                  key={link.id}
+                  link={link}
+                  index={index}
+                  totalIcons={links.length}
+                  size={size}
+                  onClose={handleLinkClick}
+                />
               ))}
             </motion.div>
           )}
         </AnimatePresence>
 
+        {/* Main FAB button */}
         <motion.button
-          onHoverStart={() => setIsOpen(true)}
-          onHoverEnd={() => setIsOpen(false)}
+          onClick={toggle}
+          aria-label={isOpen ? 'Close social menu' : 'Open social menu'}
+          aria-expanded={isOpen}
+          aria-haspopup="menu"
+          className="social-main-button"
+          style={{
+            width: mainButtonSize,
+            height: mainButtonSize,
+          }}
+          // Hover effects
           whileHover={{ 
-            scale: 1.05, 
-            borderColor: '#ffffff9c',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)'
+            scale: 1.05,
+            borderColor: '#fff',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
           }}
           whileTap={{ scale: 0.95 }}
-          className="main-button"
+          // Focus visible para a11y
+          whileFocus={{
+            boxShadow: '0 0 0 3px rgba(147, 112, 219, 0.5)',
+          }}
         >
           <motion.div 
             animate={{ rotate: isOpen ? 45 : 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ 
+              duration: ANIMATION_CONFIG.duration.rotate,
+              ease: 'easeInOut' 
+            }}
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
-            <FaPlus size={28} strokeWidth={2} />
+            <FaPlus size={mainIconSize} />
           </motion.div>
         </motion.button>
-
       </div>
-    </>
-  );
-};
+    );
+  };
 
-export default SocialMenu;
+  // Memoizar el componente completo
+  export default memo(SocialMenu);

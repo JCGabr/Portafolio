@@ -1,0 +1,33 @@
+.animated-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  
+  will-change: contents;
+  transform: translateZ(0);
+
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-canvas {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-canvas {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .animated-canvas {
+    opacity: 0.4;
+  }
+}

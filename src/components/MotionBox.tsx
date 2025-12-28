@@ -1,4 +1,4 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants } from "motion/react";
 import '../components_styles/MotionBox.css'
 
 type MotionBoxProps = {
