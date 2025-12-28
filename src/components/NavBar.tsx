@@ -4,8 +4,8 @@ import '../components_styles/NavBar.css'
 
 const navItems = [
   { path: '/', label: 'Home' },
-  { path: '/professional', label: 'Professional' },
-  { path: '/personal', label: 'Personal' },
+  { path: '/works', label: 'Works' },
+  { path: '/about', label: 'About' },
 ]
 
 const animationStart = {
