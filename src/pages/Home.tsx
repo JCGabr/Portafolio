@@ -7,7 +7,6 @@ import { Typewriter } from 'react-simple-typewriter'
 function Home() {
   return (
     <div className="container-home">
-      <ImageBox image={backgroundImg} styleClass="backgroundSecond" />
       <ImageBox image={backgroundImg} styleClass="background" />
 
       <MotionBox variant="breathe">

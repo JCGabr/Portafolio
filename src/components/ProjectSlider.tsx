@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import '../components_styles/ProjectSlider.css';
 import { Typewriter } from 'react-simple-typewriter'
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -20,19 +20,37 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Example University",
+    title: "Example University 1",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque malesuada pulvinar justo. Sed sit amet vehicula sem.",
     category: "University",
-    color: "linear-gradient(to bottom right, #3b82f6, #06b6d4)",
+    color: "linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.3))",
     projectLink: "https://github.com/exampleUniversity",
     infoLink: "https://exampleUniversity.com/"
   },
   {
     id: 2,
-    title: "Example Personal",
+    title: "Example University 2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque malesuada pulvinar justo. Sed sit amet vehicula sem.",
+    category: "University",
+    color: "linear-gradient(to bottom right, rgba(59, 246, 230, 0.3), rgba(6, 202, 212, 0.3))",
+    projectLink: "https://github.com/exampleUniversity",
+    infoLink: "https://exampleUniversity.com/"
+  },
+  {
+    id: 3,
+    title: "Example Personal 1",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque malesuada pulvinar justo. Sed sit amet vehicula sem.",
     category: "Personal",
-    color: "linear-gradient(to bottom right, #eab308, #f97316)",
+    color: "linear-gradient(to bottom right, rgba(234, 179, 8,0.3), rgba(249, 115, 22, 0.3))",
+    projectLink: "https://github.com/examplePersonal",
+    infoLink: "https://examplePersonal.com/"
+  },
+  {
+    id: 4,
+    title: "Example Personal 2",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque malesuada pulvinar justo. Sed sit amet vehicula sem.",
+    category: "Personal",
+    color: "linear-gradient(to bottom right, rgba(234, 95, 8, 0.3), rgba(249, 115, 22, 0.3))",
     projectLink: "https://github.com/examplePersonal",
     infoLink: "https://examplePersonal.com/"
   }

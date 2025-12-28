@@ -27,7 +27,7 @@
 }
 
 .selector-button-content.active {
-    color: #60a5fa;
+    color: #922d94;
 }
 
 .selector-button-content.inactive {
@@ -95,6 +95,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    opacity: 1;
 }
 
 .slide-badge {
@@ -138,12 +139,12 @@
 }
 
 .slide-button.primary {
-    background-color: white;
-    color: #111827;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 .slide-button.primary:hover {
-    background-color: #f3f4f6;
+    background-color: rgba(255, 255, 255, 0.3)
 }
 
 .slide-button.secondary {

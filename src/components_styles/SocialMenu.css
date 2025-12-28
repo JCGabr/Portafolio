@@ -1,53 +1,61 @@
-.social-wrapper {
+.fab-wrapper {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  height: 160px;
-  width: 50px;
-  pointer-events: auto;
-}
-
-.social-menu {
-  height: 160px;
-  width: 50px;
-  overflow: hidden;
-
+  right: 24px;
+  bottom: 12px;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
-
-  cursor: pointer;
-
-  background: #111;
-  border-radius: 30px;
+  opacity: 0.7s;
 }
 
-.social-links {
+
+.icons-container {
+  position: absolute;
+  bottom: 80px;
   display: flex;
-  flex-direction: column;
-
-  gap: 14px;
+  flex-direction: column-reverse;
+  gap: 16px;
 }
 
-.social-links a {
-  color: white;
-  font-size: 22px;
-  transition: transform 0.2s ease;
-}
-
-.social-links a:hover {
-  transform: scale(1.15);
-}
-
-.arrow {
-  height: 40px;
-  width: 100%;
-
+.icon-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
 
-  background: #222;
-  color: white;
+.icon-button:hover {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-button {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.main-button:hover {
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
 }
