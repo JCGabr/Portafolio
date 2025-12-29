@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://JCGabr.github.io/Portafolio",
+  "homepage": "https://jcgabr.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
