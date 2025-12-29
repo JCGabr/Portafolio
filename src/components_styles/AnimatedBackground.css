@@ -3,12 +3,17 @@
   top: 0;
   left: 0;
   width: 100vw;
+  width: 100dvw;
   height: 100vh;
+  height: 100dvh;
   pointer-events: none;
   z-index: -1;
   
+  background-color: #0a0a0a;
+  
   will-change: contents;
   transform: translateZ(0);
+  backface-visibility: hidden;
 
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
