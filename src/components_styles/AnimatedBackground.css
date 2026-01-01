@@ -30,9 +30,3 @@
     opacity: 0.6;
   }
 }
-
-@media (prefers-color-scheme: light) {
-  .animated-canvas {
-    opacity: 0.4;
-  }
-}
